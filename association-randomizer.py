@@ -37,7 +37,7 @@ def tshark_cap():
   subprocess.Popen("tshark -s0 -I -i en0 -f 'not type data' -w /tmp/capture_chan%s.pcap -F pcap" % chan_num, shell=True, stdout=subprocess.PIPE).stdout.read()
   print('Saved pcap as /tmp/capture_chan%s.pcap' % chan_num)
   finished = raw_input('Would you like to capture on another channel? (y/n)> ')
-  if 'y' or 'yes' in finished:
+  if 'y' in finished:
     tshark_cap()
   else:
     print 'Now merging all pcaps to /tmp/capture_allpcaps.pcap...'
@@ -101,7 +101,7 @@ if len(sys.argv) < 2:
   in_file = '/tmp/capture_allpcaps.pcap'
   sniff(offline=in_file, prn = checkfcs)
   merge = raw_input("Would you like to merge all individual randomized pcaps into one? (y/n)> ")
-  if 'y' or 'yes' in merge:
+  if 'y' in merge:
     subprocess.Popen("mergecap -F pcap -w ./allpcaps.pcap ./assoc_randomized_*", shell=True, stdout=subprocess.PIPE).stdout.read()
     print "Saved combined randomized pcap as ./allpcaps.pcap\n"
     print "Complete\n"
