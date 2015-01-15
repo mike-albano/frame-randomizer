@@ -19,7 +19,7 @@ import sys, os, os.path, binascii, signal, subprocess
 # clear /tmp/ from all pre-existing files that start with capture_
 # sending output to /dev/null, in case no files exist
 FNULL = open(os.devnull, 'w')
-#subprocess.Popen("rm /tmp/capture_*", shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+subprocess.Popen("rm /tmp/capture_*", shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
 
 # function to handle signals (ctrl+c)
 def signal_handler(signal, frame):
