@@ -37,7 +37,7 @@ def tshark_cap():
   subprocess.Popen("tshark -s0 -I -i en0 -f 'not type data' -w /tmp/capture_chan%s.pcap -F pcap" % chan_num, shell=True, stdout=subprocess.PIPE).stdout.read()
   print('Saved pcap as /tmp/capture_chan%s.pcap' % chan_num)
   finished = raw_input('Would you like to capture on another channel? (y/n)> ')
-  if 'y' in finished:
+  if finished == 'y' or finished == 'yes':
     tshark_cap()
   else:
     print 'Now merging all pcaps to /tmp/capture_allpcaps.pcap...'
@@ -54,7 +54,7 @@ def associations(frame):
     print "Association Request found..."
     print "Original info:\n Client: %s\n AP: %s\n BSSID: %s\n SSID: %s" % (frame.addr2, frame.addr1, frame.addr3, frame.info)
     question = raw_input("Randomize this Association Request? (y/n) > ")
-    if question == 'y':
+    if question == 'y' or question == 'yes':
       frame.addr1 = '11:11:11:11:11:11'
       frame.addr2 = '22:22:22:22:22:22'
       frame.addr3 = '11:11:11:11:11:11'
@@ -87,6 +87,12 @@ def checkfcs(pkt):
     else:
       print "Frame %s failed FCS" % pnum
 
+# merge pcaps if necessary
+def merge_caps():
+  subprocess.Popen("mergecap -F pcap -w ./allpcaps.pcap ./assoc_randomized_*", shell=True, stdout=subprocess.PIPE).stdout.read()
+  print "Saved combined randomized pcap as ./allpcaps.pcap\n"
+
+# determine if sniffing live, or if pcap passed as argument
 if len(sys.argv) < 2:
   print "You didn't specify an input file, proceeding with live captures...\n" 
   # check if script is running as root
@@ -101,18 +107,16 @@ if len(sys.argv) < 2:
   in_file = '/tmp/capture_allpcaps.pcap'
   sniff(offline=in_file, prn = checkfcs)
   merge = raw_input("Would you like to merge all individual randomized pcaps into one? (y/n)> ")
-  if 'y' in merge:
-    subprocess.Popen("mergecap -F pcap -w ./allpcaps.pcap ./assoc_randomized_*", shell=True, stdout=subprocess.PIPE).stdout.read()
-    print "Saved combined randomized pcap as ./allpcaps.pcap\n"
+  if merge == 'y' or merge == 'yes':
+    merge_caps()
   else:
     print "Complete\n"
 else:
   in_file = str(sys.argv[1])
   sniff(offline=in_file, prn = checkfcs)
   merge = raw_input("Would you like to merge all individual randomized pcaps into one? (y/n)> ")
-  if 'y' in merge:
-    subprocess.Popen("mergecap -F pcap -w ./allpcaps.pcap ./assoc_randomized_*", shell=True, stdout=subprocess.PIPE).stdout.read()
-    print "Saved combined randomized pcap as ./allpcaps.pcap\n"
+  if merge == 'y' or merge == 'yes':
+    merge_caps()
   else:
     print "Complete\n"
 
