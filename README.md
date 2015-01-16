@@ -1,4 +1,5 @@
 # frame-randomizer
+FOO
 capture and randomize 802.11 Association Request frames.
 read the comments in script for usage.
 Dependencies on Linux include:
