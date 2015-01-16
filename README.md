@@ -10,6 +10,7 @@ xCode
 macports
 scapy
 First install Xcode: http://guide.macports.org/#installing.xcode (app store or dev website)
+
 then install macports: https://www.macports.org/install.php
 then install scapy (taken from recipe 3: http://www.secdev.org/projects/scapy/portability.html):
   sudo /opt/local/bin/port -d selfupdate
