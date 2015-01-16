@@ -104,14 +104,16 @@ if len(sys.argv) < 2:
   if 'y' in merge:
     subprocess.Popen("mergecap -F pcap -w ./allpcaps.pcap ./assoc_randomized_*", shell=True, stdout=subprocess.PIPE).stdout.read()
     print "Saved combined randomized pcap as ./allpcaps.pcap\n"
+  else:
     print "Complete\n"
 else:
   in_file = str(sys.argv[1])
   sniff(offline=in_file, prn = checkfcs)
   merge = raw_input("Would you like to merge all individual randomized pcaps into one? (y/n)> ")
-  if 'y' or 'yes' in merge:
+  if 'y' in merge:
     subprocess.Popen("mergecap -F pcap -w ./allpcaps.pcap ./assoc_randomized_*", shell=True, stdout=subprocess.PIPE).stdout.read()
     print "Saved combined randomized pcap as ./allpcaps.pcap\n"
+  else:
     print "Complete\n"
 
 sys.exit(0)
