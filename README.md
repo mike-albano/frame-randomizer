@@ -1,15 +1,16 @@
 # frame-randomizer
-FOO
 capture and randomize 802.11 Association Request frames.
-read the comments in script for usage.
+
+Read the comments in script for usage.
+
 Dependencies on Linux include:
-scapy
-wireshark
+scapy, wireshark
 
 Dependencies on OSX include the following:
-xCode
-macports
-scapy
+xCode, macports, scapy (macports used to install scapy)
+
+OSX Dependency instructions:
+
 First install Xcode: http://guide.macports.org/#installing.xcode (app store or dev website)
 
 then install macports: https://www.macports.org/install.php
