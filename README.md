@@ -14,14 +14,49 @@ NOTE: If doing Live captures from script, it must be run as root. For example:
 sudo /opt/local/bin/python2.7 association-randomizer.py
 note: I specified full path to python2.7. Alternatively, you could modify appropriate paths to include /opt/local/bin
 
+Example of using this on OSX to determine & verify supported channels of a client:
+1. sudo /opt/local/bin/python2.7 association-randomizer.py
+2. what 20MHz channel would you like to capture on? (1, 36, 40, 44, etc.) > 36
+	Now associate to AP, then press Ctrl+C to stop capturing (after associating)
+	Capturing on 'Wi-Fi'
+3. Set AP to channel 36, and associate with client. Once connected: Ctrl-c to stop capture.
+	^CYou pressed Ctrl+c to stop capturing...
+	Saved pcap as /tmp/capture_chan36.pcap
+	Would you like to capture on another channel? (y/n)> y
+what 20MHz channel would you like to capture on? (1, 36, 40, 44, etc.) > 40
+ow associate to AP, then press Ctrl+C to stop capturing (after associating)
+        Capturing on 'Wi-Fi'
+4. Set AP to channel 40, and associate with client. Once connected: Ctrl-c to stop capture.
+        ^CYou pressed Ctrl+c to stop capturing...
+        Saved pcap as /tmp/capture_chan40.pcap
+        Would you like to capture on another channel? (y/n)> n
+	Association Request found...
+	Original info:
+ 	Client: 14:1a:c3:d2:a1:c5
+ 	AP: e5:fd:a6:15:9b:d2
+ 	BSSID: e2:24:d6:32:7a:c1
+ 	SSID: Free Public WiFi
+	Randomize this Association Request? (y/n) > y
+	New info:
+ 	Client: 22:22:22:22:22:22
+ 	AP: 11:11:11:11:11:11
+ 	BSSID: 11:11:11:11:11:11
+ 	SSID: 8118114112883
+	Wrote new pcap file to ./assoc_randomized_0.pcap
+	Hit enter to continue...
+ 
+	Would you like to merge all individual randomized pcaps into one? (y/n)> y
+	Saved combined randomized pcap as ./allpcaps.pcap
+
+The file "allpcaps.pcap" will contain all of the associations, with randomized data.
 
 DEPENDENCIES
 
 Dependencies on Linux include:
-scapy, wireshark
+scapy, tshark (usually installed with Wireshark)
 
 Dependencies on OSX include the following:
-xCode, macports, scapy (macports used to install scapy)
+xCode, macports, scapy (macports used to install scapy) & tshark (usually installed with Wireshark)
 
 OSX Dependency instructions:
 First install Xcode: http://guide.macports.org/#installing.xcode (app store or dev website)
