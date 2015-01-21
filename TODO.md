@@ -2,3 +2,5 @@
 
 *Save individual pcaps with a more descriptive file-name (like _channel# instead of just increment)
 
+*Clear working files in a more Pythonic way
+
