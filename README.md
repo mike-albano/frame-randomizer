@@ -4,7 +4,7 @@ Capture and randomize 802.11 Association Request frames.
 USAGE
 
 On Linux:
-Run the script, passing it a pcap file, and it will go through looking for 802.11 Association Request frames. Each time it finds a frame it will display the client MAC, BSSID and ESSID; prompting user for 'Randomization'. If you'd like to randomize that Assocation Frame, type 'y' and the client MAC, BSSID and ESSID will be replaced by meanengless data (1's, 2's and random numbers).
+Run the script, passing it a pcap file as an argument (ie assoc-randomizer.py foo.pcap), and it will go through looking for 802.11 Association Request frames. Each time it finds a frame it will display the client MAC, BSSID and ESSID; prompting user for 'Randomization'. If you'd like to randomize that Assocation Frame, type 'y' and the client MAC, BSSID and ESSID will be replaced by meanengless data (1's, 2's and random numbers).
 The frame will be saved in the current directory as it's own pcap file. Upon completion you can merge all the individual pcaps into a single pcap (useful, if multiple Association Frames contained in the original pcap).
 
 On OSX:
