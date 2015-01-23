@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
 ######
+# v1.0
 # Randomize Transmit, Source, BSSID and SSID data for Assoc. Req. frames
 # Source file needs to be in pcap format, or wcap (native OSX sniffer). 
 # If it's not, you can convert with:
