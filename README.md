@@ -20,16 +20,17 @@ Example of using this on OSX to determine & verify supported channels of a clien
 1. sudo /opt/local/bin/python2.7 association-randomizer.py
 
 2. what 20MHz channel would you like to capture on? (1, 36, 40, 44, etc.) > 36
-	Now associate to AP, then press Ctrl+C to stop capturing (after associating)
+        Set AP to channel 36, and associate with client. Once connected: Ctrl-c to stop capture (after associating)
 	Capturing on 'Wi-Fi'
 
-3. Set AP to channel 36, and associate with client. Once connected: Ctrl-c to stop capture.
 	^CYou pressed Ctrl+c to stop capturing...
 	Saved pcap as /tmp/capture_chan36.pcap
 	Would you like to capture on another channel? (y/n)> y
 	what 20MHz channel would you like to capture on? (1, 36, 40, 44, etc.) > 40
-**now associate to AP, then press Ctrl+C to stop capturing (after associating)**
+        Set AP to channel 40, and associate with client. Once connected: Ctrl-c to stop capture (after associating)
         Capturing on 'Wi-Fi'
+
+	^CYou pressed Ctrl+c to stop capturing...
 
 4. Start capturing on channel 40, then set AP to channel 40...Client should associate automatically. Once connected: 
 	Ctrl-c to stop capture.
