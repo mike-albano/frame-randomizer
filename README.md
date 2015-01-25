@@ -11,7 +11,9 @@ On OSX:
 Same as above, except you can run script without passing any arguments, and capture frames real-time. Follow the prompts for channel settings, starting/stopping capture (Ctrl-c) etc.
 
 NOTE: If doing Live captures from script, it must be run as root. For example:
+```
 sudo /opt/local/bin/python2.7 association-randomizer.py
+```
 note: I specified full path to python2.7. Alternatively, you could modify appropriate paths to include /opt/local/bin
 
 Example of using this on OSX to determine & verify supported channels of a client:
@@ -72,12 +74,15 @@ First install Xcode: http://guide.macports.org/#installing.xcode (app store or d
 Then install macports: https://www.macports.org/install.php
 
 Then install scapy (taken from recipe 3: http://www.secdev.org/projects/scapy/portability.html):
+```
   sudo /opt/local/bin/port -d selfupdate
-
   sudo port install scapy
-
+```
 You must use the version of python installed by macports in order to use the other libraries installed by macports (including scapy). 
 For example: python2.7 (full path is on my OSX install is: /opt/local/bin/python2.7)
-Perform a quick test of scapy install by running: /opt/local/bin/python2.7
-you should then be able to "import scapy" from IDLE; or simply run "scapy" from command line.
+Perform a quick test of scapy install by running: 
+```
+/opt/local/bin/python2.7
+```
+You should then be able to "import scapy" from IDLE; or simply run "scapy" from command line.
 
