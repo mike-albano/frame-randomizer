@@ -73,6 +73,7 @@ Then install macports: https://www.macports.org/install.php
 
 Then install scapy (taken from recipe 3: http://www.secdev.org/projects/scapy/portability.html):
   sudo /opt/local/bin/port -d selfupdate
+
   sudo port install scapy
 
 You must use the version of python installed by macports in order to use the other libraries installed by macports (including scapy). 
