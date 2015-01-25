@@ -7,7 +7,7 @@
 # If it's not, you can convert with:
 # tshark -r <input_file> -w <output_file> -F pcap
 # Usage: 
-# *specify source file ie association-randomizer.py galaxy.pcap
+# *specify source file. Example: association-randomizer.py galaxy.pcap
 # *launch without source file and capture on specified channels
 #######
 
